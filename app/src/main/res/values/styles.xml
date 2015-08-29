@@ -22,7 +22,7 @@
     </style>
 
     <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
-        <item name="colorAccent">@color/primary</item>
+        <item name="colorAccent">@color/white</item>
         <item name="android:textColorPrimary">@color/primary</item>
         <item name="android:background">@color/primary</item>
     </style>
@@ -32,10 +32,11 @@
     </style>
 
     <style name="MyActionButtonStyle" parent="Base.Theme.AppCompat.Light">
-        <item name="android:minWidth">0dip</item>
+        <item name="android:minWidth">@dimen/activity_horizontal_margin</item>
         <item name="android:padding">20dip</item>
         <item name="android:maxWidth">200dip</item>
         <item name="android:background">@color/primary</item>
+
 
     </style>
 

@@ -3,6 +3,7 @@
     <item android:id="@+id/action_ask"
         android:icon="@drawable/ask"
         android:title="@string/action_ask"
+        android:tint="@color/white"
         AskMe:showAsAction="always"/>
     <item android:id="@+id/action_answer"
         android:icon="@drawable/answer"
