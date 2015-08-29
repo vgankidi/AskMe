@@ -9,20 +9,20 @@ import com.parse.ParseQuery;
  */
 @ParseClassName("Category")
 public class Category extends ParseObject {
-    public String getId() {
-        return getString("id");
+    public int getCategory_Id() {
+        return getInt("category_id");
     }
 
-    public void setId(String id) {
-        put("id", id);
+    public void setCategory_Id(int id) {
+        put("category_id", id);
     }
 
-    public String getName() {
-        return getString("name");
+    public String getCategory_Name() {
+        return getString("category_name");
     }
 
-    public void setName(String name) {
-        put("name", name);
+    public void setCategory_Name(String name) {
+        put("category_name", name);
     }
 
     public static ParseQuery<Category> getQuery() {
