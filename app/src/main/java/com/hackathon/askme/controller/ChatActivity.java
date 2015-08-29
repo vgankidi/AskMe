@@ -20,8 +20,11 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ChatActivity extends Activity {
     private static final String TAG = ChatActivity.class.getName();
@@ -37,6 +40,40 @@ public class ChatActivity extends Activity {
     private boolean mFirstLoad;
 
     private static final int MAX_CHAT_MESSAGES_TO_SHOW = 50;
+
+    private static final Map<Integer, List<String>> acceptableAnswers = new HashMap<Integer, List<String>>() {
+        {
+            put(0, new ArrayList<String>() {
+                {
+                    add("Hi. I am Nessa. How are you doing");
+                    add("Hello. I am Nessa.");
+                }
+            });
+            put(1, new ArrayList<String>() {
+                {
+                    add("Good to hear that.");
+                    add("Great! How can I help you today?");
+                }
+            });
+            put(2, new ArrayList<String>() {
+                {
+                    add("I am sorry to hear that.");
+                }
+            });
+        }
+    };
+    private static final Map<String, Integer> qAndA = new HashMap<String, Integer>() {
+        {
+            put("hi", 0);
+            put("hello", 0);
+            put("i am fine", 1);
+            put("i am doing good", 1);
+            put("great", 1);
+            put("bad", 2);
+            put("not doing great", 2);
+            put("i have had better days", 2);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,18 +127,29 @@ public class ChatActivity extends Activity {
             public void onClick(View v) {
                 String data = etMessage.getText().toString();
                 // Use Message model to create new messages now
-                Message message = new Message();
+                final Message message = new Message();
                 message.setUserId(sUserId);
                 message.setBody(data);
                 message.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        receiveMessages();
+                        String response = processMessage(message);
+                        //receiveMessages();
                     }
                 });
                 etMessage.setText("");
             }
         });
+    }
+
+    private String processMessage(Message message) {
+        String userResponse = message.getBody().toLowerCase();
+        if (qAndA.containsKey(userResponse)) {
+            List<String> responses = acceptableAnswers.get(qAndA.get(userResponse));
+            return null;
+        } else {
+            return "I am sorry. I am not able to understand what you just said.";
+        }
     }
 
     // Query messages from Parse so we can load them into the chat adapter

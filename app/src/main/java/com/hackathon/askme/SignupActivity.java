@@ -1,6 +1,7 @@
 package com.hackathon.askme;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -94,8 +95,10 @@ public class SignupActivity extends AppCompatActivity {
 
     public void onSignupSuccess() {
         _signupButton.setEnabled(true);
+        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        startActivity(intent);
         setResult(RESULT_OK, null);
-        finish();
+//        finish();
     }
 
     public void onSignupFailed() {
