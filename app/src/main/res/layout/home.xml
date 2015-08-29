@@ -9,5 +9,7 @@
         android:text="A girl should be two things: classy and fabulous."
         android:id="@+id/quote"
         android:textSize="25sp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="@color/primary"
+        android:background="@color/white"/>
 </LinearLayout>
