@@ -6,14 +6,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+
 
 public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Parse.initialize(this, "erM6HVhGfEc0AS8LKygVeG26ry5L6mcgfqQvaewl", "TBM5x1u8zIwTQWJRcq1raRAn9IK74sogDuKYGO1I");
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this);
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
