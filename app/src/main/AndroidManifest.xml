@@ -36,9 +36,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignupActivity" android:theme="@style/AppTheme.Dark" />
-        <activity android:name=".HomeActivity" android:label="" android:theme="@style/AppTheme.padding">
+        <activity android:name=".HomeActivity" android:label="" android:theme="@style/AppTheme.padding" />
+        <activity android:name=".controller.ChatActivity" android:label="" android:theme="@style/AppTheme.padding" />
 
-        </activity>
+
     </application>
 
 </manifest>
