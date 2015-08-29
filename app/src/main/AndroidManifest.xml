@@ -50,10 +50,17 @@
             android:theme="@style/AppTheme.padding" >
 
         </activity>
+        <activity
+            android:name=".DiscoverActivity"
+            android:label=""
+            android:theme="@style/AppTheme.padding" >
+
+        </activity>
         <activity android:name=".controller.ChatActivity" android:label="" android:theme="@style/AppTheme.padding">
 
         </activity>
 
     </application>
+
 
 </manifest>
