@@ -27,29 +27,12 @@ import butterknife.InjectView;
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
 
-    @InjectView(R.id.quote) TextView _nameText;
-    @InjectView(R.id.action_ask) Button _askButton;
-    @InjectView(R.id.action_answer) Button _answerButton;
-    @InjectView(R.id.action_discover) Button _discoverButton;
-    @InjectView(R.id.action_notifications) Button _notificationsButton;
-    @InjectView(R.id.action_me) Button _meButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-        ButterKnife.inject(this);
 
-        _discoverButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                // Start the Signup activity
-                Intent intent = new Intent(HomeActivity.this, DiscoverActivity.class);
-                intent.putExtra("context", "discover");
-                startActivity(intent);
-            }
-        });
         Parse.enableLocalDatastore(this);
         Parse.initialize(this, "erM6HVhGfEc0AS8LKygVeG26ry5L6mcgfqQvaewl", "TBM5x1u8zIwTQWJRcq1raRAn9IK74sogDuKYGO1I");
         ParseObject.registerSubclass(Message.class);
@@ -66,9 +49,14 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items
+        Intent intent;
         switch (item.getItemId()) {
             case R.id.action_ask:
-                Intent intent = new Intent(getApplicationContext(), ChatActivity.class);
+                intent = new Intent(getApplicationContext(), ChatActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.action_discover:
+                intent = new Intent(getApplicationContext(), DiscoverActivity.class);
                 startActivity(intent);
                 return true;
             default:
