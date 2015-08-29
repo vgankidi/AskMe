@@ -1,10 +1,10 @@
-package com.hackathon.askme;
+package com.hackathon.askme.model;
 
 import android.content.Context;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
-import com.hackathon.askme.models.Category;
+import com.hackathon.askme.model.Category;
 
 import java.util.List;
 

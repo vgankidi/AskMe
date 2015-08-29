@@ -3,21 +3,14 @@ package com.hackathon.askme;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.hackathon.askme.models.Category;
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.ParseObject;
-import com.parse.ParseQuery;
+import com.hackathon.askme.model.Category;
+import com.hackathon.askme.model.CategoryViewAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,7 +19,7 @@ import java.util.List;
 public class DiscoverActivity extends ListActivity {
     private String context;
     List<Category> categories;
-    CategoryViewAdapter categoryViewAdapter
+    CategoryViewAdapter categoryViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +28,7 @@ public class DiscoverActivity extends ListActivity {
         String[] adobe_products = getResources().getStringArray(R.array.categories);
 
         // Binding resources Array to ListAdapter
-        this.setListAdapter(new ArrayAdapter<String>(this, R.layout.categories_listview, R.id.label, categories));
+        //this.setListAdapter(new ArrayAdapter<String>(this, R.layout.categories_listview, R.id.label, categories));
 
         ListView lv = getListView();
 

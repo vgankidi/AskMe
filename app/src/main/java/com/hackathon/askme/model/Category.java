@@ -1,10 +1,8 @@
-package com.hackathon.askme.models;
+package com.hackathon.askme.model;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.List;
 
 /**
  * Created by ishah on 8/29/15.
