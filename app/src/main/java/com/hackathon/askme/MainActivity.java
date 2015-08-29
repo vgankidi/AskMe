@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
+import com.parse.ParseObject;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -19,6 +20,10 @@ public class MainActivity extends ActionBarActivity {
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
+
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
