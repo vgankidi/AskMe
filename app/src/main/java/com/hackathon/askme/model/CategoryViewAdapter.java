@@ -17,8 +17,4 @@ public class CategoryViewAdapter extends ArrayAdapter<Category> {
         super(context, 0, categories);
     }
 
-    @Override
-    public View getView(int position, ) {
-
-    }
 }
