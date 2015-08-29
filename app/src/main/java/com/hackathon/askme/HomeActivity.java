@@ -26,16 +26,14 @@ import butterknife.InjectView;
  */
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG = "HomeActivity";
-
+    
+    @InjectView(R.id.quote) TextView _nameText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "erM6HVhGfEc0AS8LKygVeG26ry5L6mcgfqQvaewl", "TBM5x1u8zIwTQWJRcq1raRAn9IK74sogDuKYGO1I");
-        ParseObject.registerSubclass(Message.class);
     }
 
     @Override

@@ -17,10 +17,10 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+     /*   Parse.enableLocalDatastore(this);
         Parse.initialize(this, "erM6HVhGfEc0AS8LKygVeG26ry5L6mcgfqQvaewl", "TBM5x1u8zIwTQWJRcq1raRAn9IK74sogDuKYGO1I");
         //ParseAnalytics.trackAppOpenedInBackground(getIntent());
-        ParseObject.registerSubclass(Message.class);
+        ParseObject.registerSubclass(Message.class);*/
 
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
