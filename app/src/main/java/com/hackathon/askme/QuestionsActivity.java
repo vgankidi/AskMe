@@ -2,6 +2,7 @@
 package com.hackathon.askme;
 
         import android.app.Activity;
+        import android.app.ExpandableListActivity;
         import android.content.Context;
         import android.os.Bundle;
 
@@ -21,7 +22,7 @@ package com.hackathon.askme;
 /**
  * Created by vigankid on 8/29/15.
  */
-public class QuestionsActivity extends Activity {
+public class QuestionsActivity extends ExpandableListActivity {
     private static final String TAG = "QuestionsActivity";
 
     @InjectView(R.id.quote)
@@ -35,7 +36,6 @@ public class QuestionsActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
-        ButterKnife.inject(this);
 
         parentItems = new ArrayList<String>();
         childItems = new HashMap<String, List<String>>();
