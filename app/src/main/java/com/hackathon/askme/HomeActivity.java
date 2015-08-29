@@ -51,10 +51,17 @@ public class HomeActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_ask:
                 intent = new Intent(getApplicationContext(), ChatActivity.class);
+                intent.putExtra("action", "ask");
+                startActivity(intent);
+                return true;
+            case R.id.action_answer:
+                intent = new Intent(getApplicationContext(), DiscoverActivity.class);
+                intent.putExtra("action", "answer");
                 startActivity(intent);
                 return true;
             case R.id.action_discover:
                 intent = new Intent(getApplicationContext(), DiscoverActivity.class);
+                intent.putExtra("action", "discover");
                 startActivity(intent);
                 return true;
             default:

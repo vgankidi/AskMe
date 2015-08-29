@@ -2,6 +2,7 @@ package com.hackathon.askme;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hackathon.askme.controller.ChatActivity;
 import com.hackathon.askme.model.Category;
 import com.hackathon.askme.model.CategoryViewAdapter;
 import com.parse.FindCallback;
@@ -32,33 +34,18 @@ import butterknife.InjectView;
  */
 public class DiscoverActivity extends AppCompatActivity {
     ListView _listView;
-    private List<Category> mCategoryList;
+    Intent intent;
 
 @Override
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_discover);
+    intent = getIntent();
 
 
     _listView = (ListView) findViewById(R.id.lvDiscover);
     _listView.setTranscriptMode(1);
 
-
-
-    // assign the list adapter
-
-   /* Category category1 = new Category();
-    category1.setCategory_Id(1);
-    category1.setCategory_Name("Business & Entrepreneurship");
-    Category category2 = new Category();
-    category2.setCategory_Id(2);
-    category2.setCategory_Name("Leadership & Skills");
-    Category category3 = new Category();
-    category3.setCategory_Id(3);
-    category3.setCategory_Name("Career");
-    Category category4 = new Category();
-    category4.setCategory_Id(4);
-    category4.setCategory_Name("Workplace");*/
     ParseQuery<Category> query = ParseQuery.getQuery(Category.class);
     query.findInBackground(new FindCallback<Category>() {
         @Override
@@ -93,6 +80,14 @@ protected void onCreate(Bundle savedInstanceState) {
                     "Position :" + itemPosition + "  ListItem : " + itemValue.getCategory_Name(), Toast.LENGTH_LONG)
                     .show();
 
+            /*
+            if() {
+                Intent intent = new Intent(getApplicationContext(), DiscoverActivity.class);
+                intent.putExtra("action", "ask");
+                startActivity(intent);
+            } else if () {
+
+            }*/
         }
 
     });
