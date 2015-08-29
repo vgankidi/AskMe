@@ -25,5 +25,8 @@
     <string name="action_me">Me</string>
     <string name="title_activity_category">Category</string>
     <string name="title_activity_questions">Questions</string>
+    <string name="title_activity_list">list</string>
+
+    <string name="health">Health</string>
 
 </resources>

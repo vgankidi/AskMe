@@ -6,11 +6,11 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".controller.ChatApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        android:name=".controller.ChatApplication">
+        android:theme="@style/AppTheme" >
 
         <!--
         <activity
@@ -30,16 +30,11 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".LoginActivity"
             android:theme="@style/AppTheme.Dark" >
-
         </activity>
         <activity
             android:name=".SignupActivity"
@@ -48,12 +43,24 @@
             android:name=".HomeActivity"
             android:label=""
             android:theme="@style/AppTheme.padding" >
-
         </activity>
+        <activity
+            android:name=".QuestionsActivity"
+            android:label="" >
+        </activity>
+        <activity
+            android:name=".controller.ChatActivity"
+            android:label=""
+            android:theme="@style/AppTheme.padding" >
+        </activity>
+        <activity
+            android:name=".list"
+            android:label="" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-        <activity android:name=".QuestionsActivity" android:label=""> </activity>
-
-        <activity android:name=".controller.ChatActivity" android:label="" android:theme="@style/AppTheme.padding">
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
 
