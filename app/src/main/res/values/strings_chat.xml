@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="message_hint">Ask something!</string>
+    <string name="send">Send</string>
+
+    <string name="profile_me">Me</string>
+    <string name="profile_other">Nessa</string>
+</resources>
