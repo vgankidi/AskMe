@@ -56,6 +56,9 @@
             android:theme="@style/AppTheme.padding" >
 
         </activity>
+
+        <activity android:name=".QuestionsActivity" android:label=""> </activity>
+        
         <activity android:name=".controller.ChatActivity" android:label="" android:theme="@style/AppTheme.padding">
 
         </activity>
