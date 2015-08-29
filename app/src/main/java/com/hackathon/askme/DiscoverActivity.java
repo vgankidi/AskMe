@@ -23,138 +23,80 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-
-import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.InjectView;
 
 /**
  * Created by ishah on 8/28/15.
  */
 public class DiscoverActivity extends AppCompatActivity {
     ListView _listView;
-    Intent intent;
+    String context;
 
-@Override
-protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_discover);
-    intent = getIntent();
-
-
-    _listView = (ListView) findViewById(R.id.lvDiscover);
-    _listView.setTranscriptMode(1);
-
-    ParseQuery<Category> query = ParseQuery.getQuery(Category.class);
-    query.findInBackground(new FindCallback<Category>() {
-        @Override
-        public void done(List<Category> categories, ParseException e) {
-            if (e == null) {
-                Log.d("categories", "Retrieved " + categories.size() + " categories");
-                CategoryViewAdapter myAdapter = new CategoryViewAdapter(getApplicationContext(), categories);
-                _listView.setAdapter(myAdapter);
-                myAdapter.notifyDataSetChanged();
-            } else {
-                Log.d("categories", "Error: " + e.getMessage());
-            }
-        }
-    });
-
-    
-
-    _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view,
-                                int position, long id) {
-
-            // ListView Clicked item index
-            int itemPosition = position;
-
-            // ListView Clicked item value
-            Category itemValue = (Category) _listView.getItemAtPosition(position);
-
-            // Show Alert
-            Toast.makeText(getApplicationContext(),
-                    "Position :" + itemPosition + "  ListItem : " + itemValue.getCategory_Name(), Toast.LENGTH_LONG)
-                    .show();
-
-            /*
-            if() {
-                Intent intent = new Intent(getApplicationContext(), DiscoverActivity.class);
-                intent.putExtra("action", "ask");
-                startActivity(intent);
-            } else if () {
-
-            }*/
-        }
-
-    });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
     }
-}
-
-
-/*
-public class DiscoverActivity extends ListActivity {
-    private String context;
-    List<Category> categories;
-    CategoryViewAdapter categoryViewAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // storing string resources into Array
-      /*  String[] adobe_products = getResources().getStringArray(R.array.categories);
+        setContentView(R.layout.activity_discover);
+        Intent intent = getIntent();
+        context = intent.getStringExtra("context");
 
-        // Binding resources Array to ListAdapter
-        //this.setListAdapter(new ArrayAdapter<String>(this, R.layout.categories_listview, R.id.label, categories));
+        _listView = (ListView) findViewById(R.id.lvDiscover);
+        _listView.setTranscriptMode(1);
 
-        ListView lv = getListView();
-
-        // listening to single list item on click
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-
-                // selected item
-                String product = ((TextView) view).getText().toString();
-
-                // Launching new Activity on selecting single List Item
-                Intent i = new Intent(getApplicationContext(), HomeActivity.class);
-                // sending data to new activity
-                i.putExtra("context", "context");
-                startActivity(i);
-
+        ParseQuery<Category> query = ParseQuery.getQuery(Category.class);
+        query.findInBackground(new FindCallback<Category>() {
+            @Override
+            public void done(List<Category> categories, ParseException e) {
+                if (e == null) {
+                    Log.d("categories", "Retrieved " + categories.size() + " categories");
+                    CategoryViewAdapter myAdapter = new CategoryViewAdapter(getApplicationContext(), categories);
+                    _listView.setAdapter(myAdapter);
+                    myAdapter.notifyDataSetChanged();
+                } else {
+                    Log.d("categories", "Error: " + e.getMessage());
+                }
             }
         });
 
-        setContentView(R.layout.activity_main);
-        Intent intent = getIntent();
-        context = intent.getStringExtra("context");
-        if(context.equals("discover")) {
-            ParseQuery<Category> query = ParseQuery.getQuery("Category");
-            query.findInBackground(new FindCallback<Category>() {
-                public void done(List<Category> categoryList, ParseException e) {
-                    if (e == null) {
-                        categories.clear();
-                        categories.addAll(categoryList);
-                        categoryViewAdapter = new CategoryViewAdapter(DiscoverActivity.this, categories);
-                        setContentView();
-                        //objectsWereRetrievedSuccessfully(objects);
-                    } else {
-                        //objectRetrievalFailed();
-                    }
-                }
+        // Define onItemClick behavior
+        _listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+
+                // ListView Clicked item index
+                int itemPosition = position;
+                // ListView Clicked item value
+                Category itemValue = (Category) _listView.getItemAtPosition(position);
+
+                // Show Alert
+                Toast.makeText(getApplicationContext(),
+                        "Position :" + itemPosition + "  ListItem : " + itemValue.getCategory_Name(), Toast.LENGTH_LONG)
+                        .show();
+
+                // TODO Call QuestionActivity
+//                if(context.equals("answer")) {
+//                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//                    intent.putExtra("action", "answer");
+//                    intent.putExtra("category", (java.io.Serializable) itemValue);
+//                    startActivity(intent);
+//                } else if (context.equals("discover")) {
+//                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+//                    intent.putExtra("action", "discover");
+//                    intent.putExtra("category", (java.io.Serializable) itemValue);
+//                    startActivity(intent);
+//                }
             }
-        } else if(context.equals("answer")) {
-
-        }
-    }
-
-    @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        // Do something when a list item is clicked
+        });
     }
 }
-*/
+
