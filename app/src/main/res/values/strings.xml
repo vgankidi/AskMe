@@ -18,5 +18,10 @@
     <string name="judgement_toast">Cheating is wrong.</string>
     <string name="title_activity_cheat">CheatActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="action_ask">Ask</string>
+    <string name="action_answer">Answer</string>
+    <string name="action_search">Search</string>
+    <string name="action_notifications">Notifications</string>
+    <string name="action_me">Me</string>
 
 </resources>

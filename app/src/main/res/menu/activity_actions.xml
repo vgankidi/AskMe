@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:AskMe="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_ask"
+        android:icon="@drawable/ask"
+        android:title="@string/action_ask"
+        AskMe:showAsAction="always"/>
+    <item android:id="@+id/action_answer"
+        android:icon="@drawable/answer"
+        android:title="@string/action_answer"
+        AskMe:showAsAction="always"/>
+    <item android:id="@+id/action_discover"
+        android:icon="@drawable/search"
+        android:title="@string/action_search"
+        AskMe:showAsAction="always"/>
+    <item android:id="@+id/action_notifications"
+        android:icon="@drawable/notifications"
+        android:title="@string/action_notifications"
+        AskMe:showAsAction="always"/>
+    <item android:id="@+id/action_me"
+        android:icon="@drawable/me"
+        android:title="@string/action_me"
+        AskMe:showAsAction="always"/>
+</menu>
