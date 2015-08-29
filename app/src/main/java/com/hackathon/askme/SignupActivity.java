@@ -69,6 +69,7 @@ public class SignupActivity extends AppCompatActivity {
         String password = _passwordText.getText().toString().trim();
 
         // Signup Logic
+
         // Set up a new Parse user
         ParseUser user = new ParseUser();
         user.setUsername(userName);
