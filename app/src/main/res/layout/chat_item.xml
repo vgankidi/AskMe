@@ -7,7 +7,8 @@
         android:id="@+id/ivProfileLeft"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:text="@string/profile_other" />
+        android:text="@string/profile_other"
+        android:textColor="@color/primary_dark"/>
     <TextView
         android:textSize="18sp"
         android:id="@+id/tvBody"
@@ -15,12 +16,14 @@
         android:lines="3"
         android:layout_marginRight="64dp"
         android:layout_width="match_parent"
-        android:layout_height="64dp">
+        android:layout_height="64dp"
+        android:textColor="@color/primary">
     </TextView>
     <TextView
         android:id="@+id/ivProfileRight"
         android:layout_marginLeft="-64dp"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:text="@string/profile_me" />
+        android:text="@string/profile_me"
+        android:textColor="@color/black"/>
 </LinearLayout>
