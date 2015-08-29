@@ -1,4 +1,4 @@
-package com.vigankid.geoquiz;
+package com.hackathon.askme;
 
 /**
  * Created by vigankid on 1/26/15.

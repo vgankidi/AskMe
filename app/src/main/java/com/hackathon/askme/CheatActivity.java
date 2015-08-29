@@ -1,4 +1,4 @@
-package com.vigankid.geoquiz;
+package com.hackathon.askme;
 
 import android.content.Context;
 import android.content.Intent;
