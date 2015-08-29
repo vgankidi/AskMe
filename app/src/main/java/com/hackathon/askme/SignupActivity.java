@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.ParseException;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
+
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
@@ -60,11 +64,20 @@ public class SignupActivity extends AppCompatActivity {
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String name = _nameText.getText().toString();
-        String email = _emailText.getText().toString();
-        String password = _passwordText.getText().toString();
+        String userName = _nameText.getText().toString().trim();
+        String email = _emailText.getText().toString().trim();
+        String password = _passwordText.getText().toString().trim();
 
-        // TODO: Implement your own signup logic here.
+        // Signup Logic
+
+        // Set up a new Parse user
+        ParseUser user = new ParseUser();
+        user.setUsername(userName);
+        user.setEmail(email);
+        user.setPassword(password);
+        // Call the Parse signup method
+        user.signUpInBackground();
+
 
         new android.os.Handler().postDelayed(
                 new Runnable() {
